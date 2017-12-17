@@ -9,7 +9,7 @@ file_name = now.strftime('%H%M%S')
  
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
-    os.chmod(dir_path, 0777)
+    os.chmod(dir_path, 0755)
  
 picamera = picamera.PiCamera()
 picamera.capture(dir_path+'/'+file_name+'.jpg')
