@@ -23,10 +23,14 @@ picamera.stop_recording()
 
 #encording with ffmpeg
 print('encording video')
-stream = ffmpeg.input(dir_path+"/"+file_name+".h264")
-#print(dir_path+"/"+file_name+".h264")
-#print(dir_path+"/"+file_name+".mp4")
-stream = ffmpeg.output(stream, dir_path+"/"+file_name+".mp4")
-#print(dir_path+"/"+file_name+".mp4")
+input_file_path = dir_path+'/'+file_name+'.h264'
+output_file_path = stream, dir_path+'/'+file_name+'.mp4'
+#stream = ffmpeg.input(dir_path+'/'+file_name+'.h264')
+stream = ffmpeg.input(input_file_path)
+#print(dir_path+'/'+file_name+'.h264')
+#print(dir_path+'/'+file_name+'.mp4')
+#stream = ffmpeg.output(stream, dir_path+'/'+file_name+'.mp4')
+stream = ffmpeg.output(output_file_path)
+#print(dir_path+'/'+file_name+'.mp4')
 ffmpeg.run(stream)
 
