@@ -1,6 +1,7 @@
 import picamera
 import datetime
 import os
+import ffmpeg
  
 now = datetime.datetime.now()
 dir_name = now.strftime('%Y%m%d')
@@ -15,6 +16,14 @@ picamera = picamera.PiCamera()
 picamera.capture(dir_path+'/'+file_name+'.jpg')
 
 #recording video
+print('recording video')
 picamera.start_recording(dir_path+'/'+file_name+'.h264')
 picamera.wait_recording(10)
 picamera.stop_recording()
+
+#encording with ffmpeg
+print('encording video')
+stream = ffmpeg.input(dir_path+'/'+file_name+'.h264')
+stream = ffmpeg.output(stream, dir_path+'/'+file_name+'.mp4')
+ffmpeg.run(stream)
+
