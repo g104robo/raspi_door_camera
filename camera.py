@@ -30,7 +30,7 @@ stream = ffmpeg.input(input_file_path)
 #print(dir_path+'/'+file_name+'.h264')
 #print(dir_path+'/'+file_name+'.mp4')
 #stream = ffmpeg.output(stream, dir_path+'/'+file_name+'.mp4')
-stream = ffmpeg.output(output_file_path)
+stream = ffmpeg.output(stream, output_file_path)
 #print(dir_path+'/'+file_name+'.mp4')
 ffmpeg.run(stream)
 
