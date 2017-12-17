@@ -13,3 +13,8 @@ if not os.path.exists(dir_path):
  
 picamera = picamera.PiCamera()
 picamera.capture(dir_path+'/'+file_name+'.jpg')
+
+#recording video
+picamera.start_recording(dir_path+'/'+file_name+'.h264')
+picamera.wait_recording(10)
+picamera.stop_recording()
